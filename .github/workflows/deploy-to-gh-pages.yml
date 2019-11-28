@@ -10,10 +10,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
 
+      - name: Build
+        run: |
+          yarn
+          ./node_modules/.bin/next build
+          ./node_modules/.bin/next export
+
       - name: Build and Deploy
-        uses: JamesIves/github-pages-deploy-action@master
-        env:
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
           ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
           FOLDER: out
-          BUILD_SCRIPT: yarn && ./node_modules/.bin/next build && ./node_modules/.bin/next export
