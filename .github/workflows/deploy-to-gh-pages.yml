@@ -1,14 +1,16 @@
 name: Deploy to GitHub Pages
+
 on:
   push:
     branches:
       - master
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v1
 
       - name: Build
         run: |
@@ -16,7 +18,7 @@ jobs:
           ./node_modules/.bin/next build
           ./node_modules/.bin/next export
 
-      - name: Build and Deploy
+      - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
