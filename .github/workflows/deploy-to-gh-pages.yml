@@ -15,7 +15,7 @@ jobs:
       - name: Build
         run: |
           yarn
-          ./node_modules/.bin/next build
+          ASSET_PREFIX='keysterr' ./node_modules/.bin/next build
           ./node_modules/.bin/next export
 
       - name: Deploy
