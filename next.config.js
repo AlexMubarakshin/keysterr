@@ -1,9 +1,11 @@
 const assetPrefix = process.env.PAGES_ASSET_PREFIX || '';
-const backendUrl = process.env.PAGES_BACKEND_URL || '';
+
+if (!!assetPrefix) {
+  console.log('Configure the app with assetPrefix:', assetPrefix);
+}
 
 module.exports = {
   assetPrefix,
-  'process.env.BACKEND_URL': backendUrl,
 
   exportPathMap: function () {
     return {
