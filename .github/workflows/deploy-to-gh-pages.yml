@@ -17,6 +17,7 @@ jobs:
           yarn
           PAGES_ASSET_PREFIX='/keysterr' ./node_modules/.bin/next build
           ./node_modules/.bin/next export
+          touch out/.nojekyll
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
