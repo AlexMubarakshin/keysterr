@@ -15,7 +15,7 @@ jobs:
       - name: Build
         run: |
           yarn
-          ASSET_PREFIX='/keysterr' ./node_modules/.bin/next build
+          PAGES_ASSET_PREFIX='/keysterr' PAGES_BACKEND_URL='https://alexmubarakshin.github.io/keysterr' ./node_modules/.bin/next build
           ./node_modules/.bin/next export
           touch out/.nojekyll
 
